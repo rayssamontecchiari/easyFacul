@@ -1,6 +1,7 @@
 import 'package:easy_facul/context/context.dart';
-import 'package:easy_facul/otherPages/add_activity.dart';
-import 'package:easy_facul/otherPages/add_course.dart';
+import 'package:easy_facul/otherPages/activities/add_activity.dart';
+import 'package:easy_facul/otherPages/activities/view_activities.dart';
+import 'package:easy_facul/otherPages/courses/add_course.dart';
 import 'package:easy_facul/utils/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -48,6 +49,42 @@ class _courseDetailsState extends State<courseDetails> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
+                              builder: (_) => viewActivities(
+                                idCurrentCourse: widget.currentCourse.id,
+                              ),
+                            ),
+                          )
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.green[300],
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: Colors.green,
+                              width: 2,
+                            ),
+                          ),
+                          height: 100,
+                          child: const Center(
+                            child: Text(
+                              "VER ATIVIDADES",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
                               builder: (_) => AddActivity(
                                 idCurrentCourse: widget.currentCourse.id,
                               ),
@@ -77,7 +114,6 @@ class _courseDetailsState extends State<courseDetails> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
                   ],
                 ),
               )

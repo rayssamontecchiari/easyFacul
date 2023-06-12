@@ -1,9 +1,9 @@
 import 'package:easy_facul/context/context.dart';
-import 'package:easy_facul/otherPages/course_details.dart';
+import 'package:easy_facul/otherPages/courses/course_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../utils/app_bar.dart';
+import '../../utils/app_bar.dart';
 
 class viewCourse extends StatefulWidget {
   viewCourse({Key? key}) : super(key: key);

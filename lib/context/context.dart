@@ -18,6 +18,7 @@ class Course {
   }) : _id = Uuid().v4();
 
   String get id => _id;
+  List<Activity> get _activities => activities;
 
   void addActivity(Activity activity) {
     activities.add(activity);
@@ -45,7 +46,18 @@ class User with ChangeNotifier {
       classTime: '8:00 AM',
       professor: 'Professor A',
       period: 'Spring 2023',
-      activities: [],
+      activities: [
+        Activity(
+            type: "prova",
+            value: "10",
+            date: "25/06/2032",
+            content: "ordens parciais"),
+        Activity(
+            type: "trabalho",
+            value: "5",
+            date: "25/06/2032",
+            content: "ordens parciais, ordens parciais , ordens parciais"),
+      ],
     ),
     Course(
       name: 'Course 2',
@@ -128,5 +140,12 @@ class User with ChangeNotifier {
 
     currentCourse.addActivity(activity);
     notifyListeners();
+  }
+
+  List<Activity> getActivitiesFromCourse(String courseId) {
+    Course currentCourse =
+        courses.firstWhere((element) => element.id == courseId);
+
+    return currentCourse._activities;
   }
 }
