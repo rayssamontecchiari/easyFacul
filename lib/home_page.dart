@@ -1,4 +1,5 @@
 import 'package:easy_facul/otherPages/add_course.dart';
+import 'package:easy_facul/otherPages/view_courses.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,32 +15,68 @@ class HomePage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  InkWell(
-                    onTap: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => AddCourse(),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => AddCourse(),
+                          ),
+                        )
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.amber[300],
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.amber,
+                            width: 2,
+                          ),
                         ),
-                      )
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.amber[300],
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: Colors.amber,
-                          width: 2,
+                        height: 100,
+                        child: const Center(
+                          child: Text(
+                            "ADICIONAR DISCIPLINAS",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
-                      width: 200,
-                      height: 100,
-                      child: const Center(
-                        child: Text(
-                          "ADICIONAR DISCIPLINAS",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => viewCourse(),
+                          ),
+                        )
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.purple[300],
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Colors.purple,
+                            width: 2,
+                          ),
+                        ),
+                        height: 100,
+                        child: const Center(
+                          child: Text(
+                            "VISUALIZAR DISCIPLINAS",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
