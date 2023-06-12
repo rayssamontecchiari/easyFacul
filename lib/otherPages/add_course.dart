@@ -76,26 +76,38 @@ class _AddCourseState extends State<AddCourse> {
                   final user = Provider.of<User>(context, listen: false);
 
                   return Container(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      child: Text('Adicionar'),
-                      onPressed: () {
-                        final String name = _controladorName.text;
-                        final String classTime = _controladorClassTime.text;
-                        final String professor = _controladorProfessor.text;
-                        final String period = _controladorPeriod.text;
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        child: Text('Adicionar'),
+                        onPressed: () {
+                          final String name = _controladorName.text;
+                          final String classTime = _controladorClassTime.text;
+                          final String professor = _controladorProfessor.text;
+                          final String period = _controladorPeriod.text;
 
-                        final newCourse = Course(
-                          name: name,
-                          classTime: classTime,
-                          professor: professor,
-                          period: period,
-                          activities: [],
-                        );
-                        user.addCourse(newCourse);
-                      },
-                    ),
-                  );
+                          final newCourse = Course(
+                            name: name,
+                            classTime: classTime,
+                            professor: professor,
+                            period: period,
+                            activities: [],
+                          );
+                          user.addCourse(newCourse);
+
+                          _controladorName.clear();
+                          _controladorClassTime.clear();
+                          _controladorPeriod.clear();
+                          _controladorProfessor.clear();
+                        },
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
+                          ),
+                        ),
+                      ));
                 },
               )
             ],

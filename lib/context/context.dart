@@ -34,8 +34,8 @@ class User with ChangeNotifier {
   List<Course> courses;
 
   User({
-    this.courses = const [],
-  });
+    List<Course>? courses,
+  }) : courses = courses ?? [];
 
   void addCourse(Course course) {
     courses.add(course);
