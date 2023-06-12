@@ -22,10 +22,12 @@ class _courseDetailsState extends State<courseDetails> {
         textTitle: widget.currentCourse.name,
       ),
       body: const SafeArea(
+          child: Padding(
+        padding: EdgeInsets.all(16),
         child: Column(
-          children: [Text("hey")],
+          children: [Text("lalal")],
         ),
-      ),
+      )),
     );
   }
 }

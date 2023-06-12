@@ -25,51 +25,53 @@ class _AddCourseState extends State<AddCourse> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              const Text(
-                "Forneça as informações da nova disciplina",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Text(
+                  "Forneça as informações da nova disciplina",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: TextField(
-                  controller: _controladorName,
-                  decoration: const InputDecoration(labelText: "Nome"),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: TextField(
+                    controller: _controladorName,
+                    decoration: const InputDecoration(labelText: "Nome"),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: TextField(
-                  controller: _controladorClassTime,
-                  decoration:
-                      const InputDecoration(labelText: "Horário das aulas"),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: TextField(
+                    controller: _controladorClassTime,
+                    decoration:
+                        const InputDecoration(labelText: "Horário das aulas"),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: TextField(
-                  controller: _controladorProfessor,
-                  decoration:
-                      const InputDecoration(labelText: "Nome do professor"),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: TextField(
+                    controller: _controladorProfessor,
+                    decoration:
+                        const InputDecoration(labelText: "Nome do professor"),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: TextField(
-                  controller: _controladorPeriod,
-                  decoration: const InputDecoration(labelText: "Periodo"),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: TextField(
+                    controller: _controladorPeriod,
+                    decoration: const InputDecoration(labelText: "Periodo"),
+                    keyboardType: TextInputType.number,
+                  ),
                 ),
-              ),
-              Consumer<User>(
-                builder: (context, dataProvider, _) {
-                  final user = Provider.of<User>(context, listen: false);
+                Consumer<User>(
+                  builder: (context, dataProvider, _) {
+                    final user = Provider.of<User>(context, listen: false);
 
-                  return Container(
+                    return Container(
                       width: double.infinity,
                       child: ElevatedButton(
                         child: Text('Adicionar'),
@@ -101,10 +103,12 @@ class _AddCourseState extends State<AddCourse> {
                             ),
                           ),
                         ),
-                      ));
-                },
-              )
-            ],
+                      ),
+                    );
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),
