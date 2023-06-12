@@ -18,12 +18,16 @@ class Course {
   }) : _id = Uuid().v4();
 
   String get id => _id;
+
+  void addActivity(Activity activity) {
+    activities.add(activity);
+  }
 }
 
 class Activity {
   String type;
-  double value;
-  DateTime date;
+  String value; //modificar para double
+  String date; //modificar para dateTime
   String content;
 
   Activity({
@@ -115,6 +119,14 @@ class User with ChangeNotifier {
 
   void removeCourse(Course course) {
     courses.remove(course);
+    notifyListeners();
+  }
+
+  void addActivityToCourse(String courseId, Activity activity) {
+    Course currentCourse =
+        courses.firstWhere((element) => element.id == courseId);
+
+    currentCourse.addActivity(activity);
     notifyListeners();
   }
 }

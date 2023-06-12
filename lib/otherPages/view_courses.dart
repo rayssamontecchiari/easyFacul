@@ -27,7 +27,6 @@ class _viewCourseState extends State<viewCourse> {
           children: [
             Expanded(
               child: ListView.builder(
-                padding: EdgeInsets.only(top: 20),
                 shrinkWrap: true,
                 itemCount: _userList.length,
                 itemBuilder: (BuildContext context, int index) {
