@@ -1,6 +1,9 @@
 import 'package:easy_facul/context/context.dart';
+import 'package:easy_facul/otherPages/course_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../utils/app_bar.dart';
 
 class viewCourse extends StatefulWidget {
   viewCourse({Key? key}) : super(key: key);
@@ -16,8 +19,8 @@ class _viewCourseState extends State<viewCourse> {
     final _userList = dataProvider.courses;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Turmas em curso"),
+      appBar: AppBarCustom(
+        textTitle: "Turmas em curso",
       ),
       body: SafeArea(
         child: Column(
@@ -34,7 +37,12 @@ class _viewCourseState extends State<viewCourse> {
 
                   return InkWell(
                     onTap: () {
-                      // Lógica para lidar com o onTap do InkWell
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => courseDetails(currentCourse: item),
+                        ),
+                      );
                     },
                     child: Container(
                       color: randomColor,

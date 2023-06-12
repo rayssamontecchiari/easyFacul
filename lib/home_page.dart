@@ -1,6 +1,7 @@
 import 'package:easy_facul/otherPages/add_course.dart';
-import 'package:easy_facul/otherPages/view_courses.dart';
 import 'package:flutter/material.dart';
+
+import 'otherPages/view_courses.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,4 +1,5 @@
 import 'package:easy_facul/context/context.dart';
+import 'package:easy_facul/utils/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,15 +19,8 @@ class _AddCourseState extends State<AddCourse> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Adicionar matéria",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 15,
-          ),
-        ),
-        backgroundColor: Colors.blue[200],
+      appBar: AppBarCustom(
+        textTitle: "Adicionar matéria",
       ),
       body: SafeArea(
         child: Padding(
