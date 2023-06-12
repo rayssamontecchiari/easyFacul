@@ -23,6 +23,10 @@ class Course {
   void addActivity(Activity activity) {
     activities.add(activity);
   }
+
+  void removeAllActivity() {
+    activities.clear();
+  }
 }
 
 class Activity {
@@ -131,6 +135,14 @@ class User with ChangeNotifier {
 
   void removeCourse(Course course) {
     courses.remove(course);
+    notifyListeners();
+  }
+
+  void removeAllCourses() {
+    for (var course in courses) {
+      course.removeAllActivity();
+    }
+    courses.clear();
     notifyListeners();
   }
 
