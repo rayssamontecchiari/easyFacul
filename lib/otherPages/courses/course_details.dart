@@ -19,6 +19,9 @@ class _courseDetailsState extends State<courseDetails> {
   @override
   Widget build(BuildContext context) {
     // final dataProvider = Provider.of<User>(context);
+    String professor = widget.currentCourse.professor;
+    String period = widget.currentCourse.period;
+    String classTime = widget.currentCourse.classTime;
 
     return Scaffold(
       appBar: AppBarCustom(
@@ -31,13 +34,36 @@ class _courseDetailsState extends State<courseDetails> {
             children: [
               const Center(
                 child: Text(
-                  "O que você precisa fazer hoje?",
+                  "Informações do curso",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Professor: $professor"),
+                    Text("Período: $period")
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height / 4,
+                decoration: BoxDecoration(
+                  color: Colors.blue[200],
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                child: Center(child: Text(classTime)),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
@@ -57,10 +83,10 @@ class _courseDetailsState extends State<courseDetails> {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.green[300],
+                            color: Colors.purple[300],
                             borderRadius: BorderRadius.circular(15),
                             border: Border.all(
-                              color: Colors.green,
+                              color: Colors.purple,
                               width: 2,
                             ),
                           ),

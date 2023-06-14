@@ -146,6 +146,10 @@ class User with ChangeNotifier {
     notifyListeners();
   }
 
+  Course getCourseById(String courseId) {
+    return courses.firstWhere((element) => element.id == courseId);
+  }
+
   void addActivityToCourse(String courseId, Activity activity) {
     Course currentCourse =
         courses.firstWhere((element) => element.id == courseId);

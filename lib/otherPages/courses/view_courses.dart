@@ -17,6 +17,7 @@ class _viewCourseState extends State<viewCourse> {
   Widget build(BuildContext context) {
     final dataProvider = Provider.of<User>(context);
     final _userList = dataProvider.courses;
+    int totalOfCourses = _userList.length;
 
     return Scaffold(
       appBar: AppBarCustom(
@@ -25,6 +26,17 @@ class _viewCourseState extends State<viewCourse> {
       body: SafeArea(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 16, bottom: 16),
+              child: Text(
+                "Você possui $totalOfCourses curso(s)",
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,

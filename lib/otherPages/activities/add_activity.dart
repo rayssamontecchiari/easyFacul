@@ -60,6 +60,7 @@ class _AddActivityState extends State<AddActivity> {
                   child: TextField(
                     controller: _controladorDate,
                     decoration: const InputDecoration(labelText: "Data"),
+                    keyboardType: TextInputType.datetime,
                   ),
                 ),
                 Padding(
